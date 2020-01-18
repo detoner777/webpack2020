@@ -1,3 +1,4 @@
+export default Post
 class Post {
     constructor(title) {
         this.title = title
