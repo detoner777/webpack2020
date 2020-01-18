@@ -1,4 +1,5 @@
 const path = require('path')
+const HTMLwebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode: 'development',
@@ -7,9 +8,14 @@ module.exports = {
         analytics: './src/analytics.js'
     },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
-    }
+    },
+    plugins: [
+        new HTMLwebpackPlugin({
+            title: 'Webpack Alexey'
+        })
+    ]
 }
 
 // to run script use cli command:
