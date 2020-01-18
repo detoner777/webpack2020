@@ -4,19 +4,25 @@ const HTMLwebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
+    //ставим папку по умолчанию
+    context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: {
-        main: './src/index.js',
-        analytics: './src/analytics.js'
+        //сборка в один бандл всех основных скриптов
+        main: './index.js',
+        //для подключения стороннего срипта
+        analytics: './analytics.js'
     },
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
+        //автоматическая генерации HTML совместимого с бандлами
         new HTMLwebpackPlugin({
-            template: './src/index.html'
+            template: './index.html'
         }),
+        //очистка папки сборки
         new CleanWebpackPlugin()
     ]
 }
