@@ -4,7 +4,7 @@ const HTMLwebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
-    //ставим папку по умолчанию
+    //ставим папку для рабочих исходников по умолчанию
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: {
@@ -24,7 +24,16 @@ module.exports = {
         }),
         //очистка папки сборки
         new CleanWebpackPlugin()
-    ]
+    ],
+    //модули для импорта и подключения СSS
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use:['style-loader','css-loader']
+            }
+        ]
+    }
 }
 
 // to run script use cli command:
