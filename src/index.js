@@ -1,6 +1,9 @@
-import Post from './Post'
-import './styles/styles.css'
+import Post from "./Post";
+import "./styles/styles.css";
+import json from "./assets/json.json";
 
-const post = new Post('Webpack Post Title')
+const post = new Post("Webpack Post Title");
 
-console.log('Post to String', post.toString())
+console.log("Post to String", post.toString());
+
+console.log("JSON", json);
