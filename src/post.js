@@ -1,13 +1,15 @@
-export default Post
+export default Post;
 class Post {
-    constructor(title) {
-        this.title = title
-        this.date = new Date()
-    }
-    toString() {
-        return JSON.stringify({
-            title: this.title,
-            date: this.date.toJSON()
-        })
-    }
+  constructor(title) {
+    this.title = title;
+    this.date = new Date();
+    this.img = img;
+  }
+  toString() {
+    return JSON.stringify({
+      title: this.title,
+      date: this.date.toJSON(),
+      img: this.img
+    });
+  }
 }
